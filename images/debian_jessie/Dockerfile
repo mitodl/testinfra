@@ -23,6 +23,9 @@ RUN apt-get update && \
     locale-gen && \
     update-locale && \
     useradd -m user -c "gecos.comment" && \
+    virtualenv /usr/local/testenv && \
+    /usr/local/testenv/bin/pip install 'simplejson==3.8.2' && \
+    gem install bundler -v 1.12.3 --no-rdoc --no-ri && \
     adduser user sudo && \
     echo "user ALL=NOPASSWD: ALL" > /etc/sudoers.d/user && \
     useradd -m unprivileged && \
